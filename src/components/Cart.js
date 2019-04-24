@@ -9,7 +9,7 @@ class Cart extends React.Component {
 
       <div className="cart">
 
-        <h1>Shopping Cart</h1>
+        <h1><span role="img" aria-label="Eyeballs">🛍️</span> Shopping Cart</h1>
 
           {
             this.props.cart.length === 0 
@@ -17,7 +17,7 @@ class Cart extends React.Component {
             <p>Your shopping cart is empty!</p> 
             :
             <>
-              <ul className="cart__items">
+              <ul className="cart__list">
                 {
                   this.props.cart.map(key => {
                     const item = this.props.items.find(e => e.id === key);
@@ -34,12 +34,16 @@ class Cart extends React.Component {
 
               <div className="cart__total">Total: {this.props.formatPrice(this.props.total)}</div>
 
-              <h3>Checkout</h3>
+              <h3>Checkout:</h3>
 
-              <input type="text" placeholder="Credit Card Number" onChange={this.props.cartGouger}></input>
-              <input type="text" placeholder="Expiration" onChange={this.props.cartGouger}></input>
-              <input type="text" placeholder="CVV" onChange={this.props.cartGouger}></input>
-              <button onClick={this.props.shutItDown}>PAY</button>
+              <div className="creditCard">
+                <input className="creditCard__number" type="text" placeholder="Credit Card Number" onChange={this.props.cartGouger}></input>
+                <input className="creditCard__expiration" type="text" placeholder="Expiration" onChange={this.props.cartGouger}></input>
+                <input className="creditCard__CVV" type="text" placeholder="CVV" onChange={this.props.cartGouger}></input>
+                <button className="creditCard__pay" onClick={this.props.shutItDown}>PAY</button>
+              </div>
+
+              
 
             </>            
           }

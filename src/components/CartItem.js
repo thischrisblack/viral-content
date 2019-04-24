@@ -10,11 +10,11 @@ class CartItem extends React.Component {
   render() {
 
     return (
-      <p>
-        {this.props.item.title} 
-        {this.props.formatPrice(this.props.item.price)} 
-        <button onClick={this.gougeHarder}>&times;</button>
-      </p>
+      <li className="cart__items">
+        <span className="cart__title">{this.props.item.title}</span> 
+        <span className="cart__price">{this.props.formatPrice(this.props.item.price)}</span>
+        <span className="cart__remove" onClick={this.gougeHarder}>&times;</span>
+      </li>
     )
 
   }
