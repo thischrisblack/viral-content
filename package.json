@@ -1,7 +1,9 @@
 {
   "name": "viral-content",
   "version": "0.1.0",
-  "private": true,
+  "description": "A hostile shopping cart experiment.",
+  "author": "Chris Black <black@chrisblack.net>",
+  "license": "MIT",
   "dependencies": {
     "react": "^16.8.6",
     "react-dom": "^16.8.6",

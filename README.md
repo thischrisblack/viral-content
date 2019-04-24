@@ -1,3 +1,7 @@
+# Viral Content
+
+A shopping cart system for purchasing "viral images." The cart operates on what I'll call "Interest-Based Pricing," meaning that the more interest you show in an item—by viewing it, for example, or adding it to the cart—the faster its price will increase. (This is me trying playing around with React.)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
