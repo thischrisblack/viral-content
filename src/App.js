@@ -2,27 +2,11 @@ import React from 'react';
 import Header from './components/Header';
 import Items from './components/Items';
 import Cart from './components/Cart';
+import viralContent from './viral-content'
 
 class App extends React.Component {
   state = {
-    items: [
-      {
-        id: 'img1',
-        src: '',
-        title: 'Monkey',
-        price: 2799,
-        increment: 1, 
-        inCart: false
-      },
-      {
-        id: 'img2',
-        src: '',
-        title: 'Kitty',
-        price: 3999,
-        increment: 1,
-        inCart: false
-      }
-    ],
+    items: viralContent,
     cart: []
   }
 

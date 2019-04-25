@@ -12,11 +12,15 @@ class Item extends React.Component {
   }
 
   render() {
+    const {id, src, title, price} = this.props.item;
     return (
       <li className="item">
-        {this.props.formatPrice(this.props.item.price)} 
-        <button onClick={this.viewImage}>LOOK</button>  
-        <button disabled={this.props.cart.includes(this.props.item.id)} onClick={this.addToCart}>ADD</button>
+        <img className="item__image" alt={title} onClick={this.viewImage} src={src}></img>
+        <div className="item__title">{title}</div>
+        <div className="item__price">{this.props.formatPrice(price)} </div>
+        
+        {/* <button onClick={this.viewImage}>LOOK</button>   */}
+        <button className="item__button" disabled={this.props.cart.includes(id)} onClick={this.addToCart}>ADD TO CART</button>
       </li>
     )
   }
