@@ -254,7 +254,7 @@ Items
     align-items: center;
     justify-content: space-around;
 
-    &--red {
+    &--icon {
       background-color: transparent;
       color: white;
       font-weight: 700;
@@ -262,16 +262,11 @@ Items
       border: 0;
       border-radius: 20px;
       cursor: pointer;
-    }
 
-    &--blue {
-      background-color: transparent;
-      color: white;
-      font-weight: 700;
-      padding: 10px 20px;
-      border: 0;
-      border-radius: 20px;
-      cursor: pointer;
+      &:disabled {
+        opacity: .3;
+        cursor: auto;
+      }
     }
   }  
 
@@ -327,6 +322,7 @@ Modals
 
   &__image {
     max-height: 95vh;
+    max-width: 95vw;
   }
 
   &::after {
@@ -375,5 +371,56 @@ Modals
     font-size: 10rem;
     font-family: 'Oswald', sans-serif;
     margin-right: 3rem;
+  }
+}
+
+
+
+/***************************************************************************
+Modals
+****************************************************************************/
+
+@media screen and (max-width: 64em) {
+
+  html {
+      font-size: 50%;
+  }
+
+  .App {
+    grid-template-rows: min-content min-content min-content min-content;
+    grid-template-columns: 1fr;
+    grid-template-areas: "header"
+                        "cart"
+                        "main"
+                        "footer";
+    padding: 2rem;
+  }
+
+  .items {
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 5rem;
+    grid-row-gap: 5rem;
+  }
+
+}
+
+@media screen and (max-width: 37.5em) {
+
+  .header {
+    &__title {
+      font-size: 9rem;
+    }
+  }
+
+  .items {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+@media (min-resolution: 130dpi) and (max-resolution: 150dpi) and (width: 1280px) {
+  html {
+      font-size: 45%;
   }
 }

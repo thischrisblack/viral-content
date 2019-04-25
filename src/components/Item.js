@@ -15,13 +15,13 @@ class Item extends React.Component {
   }
 
   render() {
-
-    const {src, title, price} = this.props.item;
+    const {id, src, title, price} = this.props.item;
+    const isInCart = this.props.cart.includes(id);
     return (
       <li className="item">
         <div className="item__controls">
-          <button className="item__controls--blue"  onClick={this.viewImage}><MagnifyingGlass width={50} /></button>
-          <button className="item__controls--red" onClick={this.addToCart}><ShoppingCart width={50}/></button>
+          <button className="item__controls--icon"  onClick={this.viewImage}><MagnifyingGlass width={50} /></button>
+          <button className="item__controls--icon" disabled={isInCart} onClick={this.addToCart}><ShoppingCart width={50}/></button>
         </div>
         <img className="item__image" alt={title} onClick={this.viewImage} src={src}></img>
         <div className="item__title">{title}</div>
