@@ -9,7 +9,7 @@ class ImageModal extends React.Component {
   render () {
     return (
       <div className="image-modal" style={{display: this.props.display ? 'flex' : 'none'}} onClick={this.hideImage}>
-        <img src={this.props.src} className="image-modal__image"></img>
+        <img src={this.props.src} alt={this.props.src} className="image-modal__image"></img>
       </div>
     )
   }

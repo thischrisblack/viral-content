@@ -16,7 +16,7 @@ class Item extends React.Component {
 
   render() {
 
-    const {id, src, title, price} = this.props.item;
+    const {src, title, price} = this.props.item;
     return (
       <li className="item">
         <div className="item__controls">

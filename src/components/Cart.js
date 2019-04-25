@@ -7,7 +7,8 @@ class Cart extends React.Component {
 
     return (
 
-      <div className="cart">
+      <div className="cart-holder">
+        <div className="cart">
 
         <h1><span role="img" aria-label="Eyeballs">🛍️</span> Shopping Cart</h1>
 
@@ -37,18 +38,20 @@ class Cart extends React.Component {
               <h3>Checkout:</h3>
 
               <div className="creditCard">
-                <input className="creditCard__number" type="text" placeholder="Credit Card Number" onChange={this.props.cartGouger}></input>
-                <input className="creditCard__expiration" type="text" placeholder="Expiration" onChange={this.props.cartGouger}></input>
-                <input className="creditCard__CVV" type="text" placeholder="CVV" onChange={this.props.cartGouger}></input>
+                <input className="creditCard__number" type="text" placeholder="Credit Card Number" onChange={() => this.props.cartGouger(10000)}></input>
+                <input className="creditCard__expiration" type="text" placeholder="Expiration" onChange={() => this.props.cartGouger(100000)}></input>
+                <input className="creditCard__CVV" type="text" placeholder="CVV" onChange={() => this.props.cartGouger(1000000)}></input>
                 <button className="creditCard__pay" onClick={this.props.shutItDown}>PAY</button>
               </div>
-
-              
 
             </>            
           }
 
-        </div>   
+        </div>
+
+      </div>
+
+       
     )
 
   }

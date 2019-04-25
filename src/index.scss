@@ -53,12 +53,14 @@ Grid
 
 .App {
   display: grid;
-  grid-template-rows: min-content 1fr;
+  grid-template-rows: min-content 1fr min-content;
   grid-template-columns: 3fr 1fr;
   grid-column-gap: 4rem;
   grid-row-gap: 1rem;
   grid-template-areas: "header cart"
-                       "main cart";
+                       "main cart"
+                       "footer footer";
+  justify-items: start;
   padding: 4rem;
 }
 
@@ -83,10 +85,14 @@ Header
 Cart
 ****************************************************************************/
 
+.cart-holder {
+  grid-area: cart;
+  width: 100%;
+}
+
 .cart {
   position: relative;
-  grid-area: cart;
-  padding: 2rem;
+  padding: 2rem 2rem 4rem 2rem;
   // background-color: lightgoldenrodyellow;
   border-radius: 20px;
 
@@ -282,6 +288,27 @@ Items
 
 }
 
+
+/***************************************************************************
+Footer
+****************************************************************************/
+
+.credits {
+  grid-area: footer;
+  width: 100%;
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  color: #aaa;
+  text-align: right;
+
+
+  p {
+    padding: 1rem;
+  }
+}
+
+
+
 /***************************************************************************
 Modals
 ****************************************************************************/
@@ -313,5 +340,40 @@ Modals
     right: 0;
     position: absolute;
     z-index: -1;   
+  }
+}
+
+.crash-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background-color: transparent;
+  padding: 5rem;
+
+  &::after {
+    content: "";
+    background-color: maroon;
+    opacity: 0.9;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -101;   
+  }
+
+  &::before {
+    content: ":/";
+    color: white;
+    font-size: 10rem;
+    font-family: 'Oswald', sans-serif;
+    margin-right: 3rem;
   }
 }

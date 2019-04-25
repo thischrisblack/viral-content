@@ -2,7 +2,9 @@ import React from 'react';
 import Header from './components/Header';
 import Items from './components/Items';
 import Cart from './components/Cart';
+import Footer from './components/Footer';
 import ImageModal from './components/ImageModal';
+import CrashModal from './components/CrashModal';
 import viralContent from './viral-content'
 
 class App extends React.Component {
@@ -11,6 +13,9 @@ class App extends React.Component {
     cart: [],
     imageModal: {
       src: '/images/darth.png',
+      display: false
+    },
+    crashModal: {
       display: false
     }
   }
@@ -31,10 +36,10 @@ class App extends React.Component {
     this.setState({ items });
   }
 
-  cartGouger = () => {
+  cartGouger = (amount) => {
     const cart = this.state.cart;
     cart.forEach(item => {
-      this.priceGouger(item, 5000);
+      this.priceGouger(item, amount);
     });
   }
 
@@ -48,7 +53,7 @@ class App extends React.Component {
     // 1. Stop the insanity
     clearInterval(this.raiser);
     // 2. Display "sorry" modal
-
+    this.viewCrashModal();
   }
 
   componentDidMount() {
@@ -68,6 +73,12 @@ class App extends React.Component {
     this.setState({ image });
   }
 
+  viewCrashModal = () => {
+    const crash = this.state.crashModal;
+    crash.display = !crash.display;
+    this.setState({ crash });
+  }
+
   render() {
     const total = this.state.items.reduce((prevTotal, item) => {
       if (this.state.cart.includes(item.id)) {
@@ -76,7 +87,7 @@ class App extends React.Component {
       return prevTotal;
     }, 0);
 
-    if (total > 100000000) {
+    if (total > 9007199254740991) {
       this.shutItDown();
     }
 
@@ -84,6 +95,8 @@ class App extends React.Component {
       <div className="App">
 
         <ImageModal src={this.state.imageModal.src} display={this.state.imageModal.display} viewImageModal={this.viewImageModal}/>
+
+        <CrashModal display={this.state.crashModal.display} />
 
         <Header />
 
@@ -105,6 +118,8 @@ class App extends React.Component {
           formatPrice={this.formatPrice} 
           viewImageModal={this.viewImageModal}
         />
+
+        <Footer />
 
       </div>
     )    
