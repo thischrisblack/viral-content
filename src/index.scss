@@ -162,11 +162,11 @@ Cart
 
     &__pay {
       border: none;
-      background-color: lightgreen;      
-      border-radius: 5px;
+      background-color: darkgreen;      
+      border-radius: 20px;
       margin: 5px;
       padding: 10px 20px;
-      color: black;;
+      color: white;;
       font-weight: 700;
       cursor: pointer;
     }
@@ -205,10 +205,13 @@ Items
   grid-template-areas: "img img"
                        "title title"
                        "price cart";
+  position: relative;
   
   &__image {
     grid-area: img;
     width: 100%;
+    transition: 0.3s;
+
   }
 
   &__title {
@@ -232,5 +235,83 @@ Items
     background-color: transparent;
   }
 
+  &__controls {
+    opacity: 0;
+    transition: 0.3s;
+    z-index: 10;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 
+    &--red {
+      background-color: transparent;
+      color: white;
+      font-weight: 700;
+      padding: 10px 20px;
+      border: 0;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    &--blue {
+      background-color: transparent;
+      color: white;
+      font-weight: 700;
+      padding: 10px 20px;
+      border: 0;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+  }  
+
+  &:hover {
+    .item__image {
+      transform: scale(1.03);
+      opacity: .25;
+    }
+
+    .item__controls {
+      opacity: 1;
+    }
+  }
+
+}
+
+/***************************************************************************
+Modals
+****************************************************************************/
+
+.image-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__image {
+    max-height: 95vh;
+  }
+
+  &::after {
+    content: "";
+    background-color: white;
+    border-radius: 20px;
+    opacity: 0.9;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;   
+  }
 }

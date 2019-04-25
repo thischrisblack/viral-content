@@ -10,7 +10,7 @@ const viralContent = [
   {
     id: 'deathstar',
     src: '/images/deathstar.png',
-    title: 'She couldn\'t be stopped of cry',
+    title: 'When see, couldn\'t be stopped of cry',
     price: 2899,
     increment: .1, 
     inCart: false

@@ -2,12 +2,17 @@ import React from 'react';
 import Header from './components/Header';
 import Items from './components/Items';
 import Cart from './components/Cart';
+import ImageModal from './components/ImageModal';
 import viralContent from './viral-content'
 
 class App extends React.Component {
   state = {
     items: viralContent,
-    cart: []
+    cart: [],
+    imageModal: {
+      src: '/images/darth.png',
+      display: false
+    }
   }
 
   formatPrice = (cents) => {
@@ -29,7 +34,7 @@ class App extends React.Component {
   cartGouger = () => {
     const cart = this.state.cart;
     cart.forEach(item => {
-      this.priceGouger(item, 2500);
+      this.priceGouger(item, 5000);
     });
   }
 
@@ -56,6 +61,13 @@ class App extends React.Component {
     }, 10);
   }
 
+  viewImageModal = (show, source) => {
+    const image = this.state.imageModal;
+    image.display = show;
+    image.src = source;
+    this.setState({ image });
+  }
+
   render() {
     const total = this.state.items.reduce((prevTotal, item) => {
       if (this.state.cart.includes(item.id)) {
@@ -70,6 +82,8 @@ class App extends React.Component {
 
     return (
       <div className="App">
+
+        <ImageModal src={this.state.imageModal.src} display={this.state.imageModal.display} viewImageModal={this.viewImageModal}/>
 
         <Header />
 
@@ -89,6 +103,7 @@ class App extends React.Component {
           addToCart={this.addToCart} 
           cart={this.state.cart} 
           formatPrice={this.formatPrice} 
+          viewImageModal={this.viewImageModal}
         />
 
       </div>

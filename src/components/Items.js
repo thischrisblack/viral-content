@@ -17,6 +17,7 @@ class Items extends React.Component {
               addToCart={this.props.addToCart} 
               cart={this.props.cart} 
               formatPrice={this.props.formatPrice} 
+              viewImageModal={this.props.viewImageModal}
             />
           )
         })}

@@ -4,7 +4,7 @@ class CartItem extends React.Component {
 
   gougeHarder = () => {
     // This just makes the item price increase faster.
-    this.props.priceGouger(this.props.item.id, 50);
+    this.props.priceGouger(this.props.item.id, 250);
   }
 
   render() {
