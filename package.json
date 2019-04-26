@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "A hostile shopping cart experiment.",
   "author": "Chris Black <black@chrisblack.net>",
+  "homepage": "https://thischrisblack.github.io/viral-content/",
   "license": "MIT",
   "dependencies": {
     "node-sass": "^4.11.0",
