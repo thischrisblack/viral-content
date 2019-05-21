@@ -12,7 +12,7 @@ class App extends React.Component {
     items: viralContent,
     cart: [],
     imageModal: {
-      src: '/images/darth.png',
+      src: '',
       display: false
     },
     crashModal: {
