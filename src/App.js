@@ -1,60 +1,62 @@
-import React from 'react';
-import Header from './components/Header';
-import Items from './components/Items';
-import Cart from './components/Cart';
-import Footer from './components/Footer';
-import ImageModal from './components/ImageModal';
-import CrashModal from './components/CrashModal';
-import viralContent from './viral-content'
+import React from "react";
+import Header from "./components/Header";
+import Items from "./components/Items";
+import Cart from "./components/Cart";
+import Footer from "./components/Footer";
+import ImageModal from "./components/ImageModal";
+import CrashModal from "./components/CrashModal";
+import viralContent from "./viral-content";
 
 class App extends React.Component {
   state = {
     items: viralContent,
     cart: [],
     imageModal: {
-      src: '/images/darth.png',
+      src: "",
       display: false
     },
     crashModal: {
       display: false
     }
-  }
+  };
 
-  formatPrice = (cents) => {
+  formatPrice = cents => {
     return (cents / 100).toLocaleString("en-US", {
       style: "currency",
       currency: "USD"
     });
-  }
+  };
 
-  priceGouger = (itemId, amount) => {    
+  // Increases the increment value of an individual item.
+  priceGouger = (itemId, amount) => {
     const items = this.state.items;
     let myItem = items.find(item => {
       return item.id === itemId;
     });
     myItem.increment += amount;
     this.setState({ items });
-  }
+  };
 
-  cartGouger = (amount) => {
+  // Increases the increment value of every item in the cart.
+  cartGouger = amount => {
     const cart = this.state.cart;
     cart.forEach(item => {
       this.priceGouger(item, amount);
     });
-  }
+  };
 
-  addToCart = (itemId) => {
+  addToCart = itemId => {
     const cart = this.state.cart;
     cart.push(itemId);
     this.setState({ cart });
-  }
+  };
 
   shutItDown = () => {
     // 1. Stop the insanity
     clearInterval(this.raiser);
     // 2. Display "sorry" modal
     this.viewCrashModal();
-  }
+  };
 
   componentDidMount() {
     this.raiser = setInterval(() => {
@@ -62,7 +64,7 @@ class App extends React.Component {
       items.forEach(item => {
         item.price += item.increment;
       });
-      this.setState({items});
+      this.setState({ items });
     }, 10);
   }
 
@@ -71,13 +73,13 @@ class App extends React.Component {
     image.display = show;
     image.src = source;
     this.setState({ image });
-  }
+  };
 
   viewCrashModal = () => {
     const crash = this.state.crashModal;
     crash.display = !crash.display;
     this.setState({ crash });
-  }
+  };
 
   render() {
     const total = this.state.items.reduce((prevTotal, item) => {
@@ -93,36 +95,38 @@ class App extends React.Component {
 
     return (
       <div className="App">
-
-        <ImageModal src={this.state.imageModal.src} display={this.state.imageModal.display} viewImageModal={this.viewImageModal}/>
+        <ImageModal
+          src={this.state.imageModal.src}
+          display={this.state.imageModal.display}
+          viewImageModal={this.viewImageModal}
+        />
 
         <CrashModal display={this.state.crashModal.display} />
 
         <Header />
 
-        <Cart 
-          cart={this.state.cart} 
-          items={this.state.items} 
-          priceGouger={this.priceGouger} 
-          formatPrice={this.formatPrice} 
-          cartGouger={this.cartGouger} 
-          total={total} 
+        <Cart
+          cart={this.state.cart}
+          items={this.state.items}
+          priceGouger={this.priceGouger}
+          formatPrice={this.formatPrice}
+          cartGouger={this.cartGouger}
+          total={total}
           shutItDown={this.shutItDown}
         />
 
-        <Items 
-          items={this.state.items} 
-          priceGouger={this.priceGouger} 
-          addToCart={this.addToCart} 
-          cart={this.state.cart} 
-          formatPrice={this.formatPrice} 
+        <Items
+          items={this.state.items}
+          priceGouger={this.priceGouger}
+          addToCart={this.addToCart}
+          cart={this.state.cart}
+          formatPrice={this.formatPrice}
           viewImageModal={this.viewImageModal}
         />
 
         <Footer />
-
       </div>
-    )    
+    );
   }
 }
 
