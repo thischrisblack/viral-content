@@ -1,4 +1,5 @@
 // Google fonts
+// prettier-ignore
 @import url(https://fonts.googleapis.com/css?family=Inconsolata|Oswald:400,700|Roboto+Condensed:400,700);
 /**
 * font-family: 'Roboto Condensed', sans-serif;
@@ -6,25 +7,24 @@
 * font-family: 'Inconsolata', monospace;
 */
 
-
 *,
 *::before,
 *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
 }
 
 html {
-    box-sizing: border-box;
-    font-size: 62.5%;
+  box-sizing: border-box;
+  font-size: 62.5%;
 }
 
 body {
   margin: 0;
   padding: 0;
   font-size: 1.8rem;
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   position: relative;
@@ -39,12 +39,12 @@ body {
     bottom: 0;
     right: 0;
     position: absolute;
-    z-index: -1;   
+    z-index: -1;
   }
 }
 
 h1 {
-  font-family: 'Oswald', sans-serif;
+  font-family: "Oswald", sans-serif;
 }
 
 /***************************************************************************
@@ -57,9 +57,10 @@ Grid
   grid-template-columns: 3fr 1fr;
   grid-column-gap: 4rem;
   grid-row-gap: 1rem;
-  grid-template-areas: "header cart"
-                       "main cart"
-                       "footer footer";
+  grid-template-areas:
+    "header cart"
+    "main cart"
+    "footer footer";
   justify-items: start;
   padding: 4rem;
 }
@@ -105,7 +106,7 @@ Cart
     position: absolute;
     top: 2rem;
     right: 4rem;
-    opacity: .2;
+    opacity: 0.2;
   }
 
   &__list {
@@ -116,7 +117,7 @@ Cart
   &__items {
     display: grid;
     grid-template-columns: 1fr min-content 3rem;
-    padding: .5rem 0;
+    padding: 0.5rem 0;
 
     &:not(:last-child) {
       border-bottom: 1px solid #ccc;
@@ -128,7 +129,7 @@ Cart
   }
 
   &__price {
-    font-family: 'Inconsolata', monospace;
+    font-family: "Inconsolata", monospace;
     font-weight: 700;
   }
 
@@ -148,8 +149,9 @@ Cart
 
   .creditCard {
     display: grid;
-    grid-template-areas: "number number number"
-                         "exp cvv pay";
+    grid-template-areas:
+      "number number number"
+      "exp cvv pay";
     grid-column-gap: 1rem;
     width: 98%;
     margin-top: 1rem;
@@ -161,18 +163,18 @@ Cart
       padding: 10px 20px;
       width: 100%;
     }
-    
+
     &__number {
       grid-area: number;
     }
 
     &__pay {
       border: none;
-      background-color: darkgreen;      
+      background-color: darkgreen;
       border-radius: 20px;
       margin: 5px;
       padding: 10px 20px;
-      color: white;;
+      color: white;
       font-weight: 700;
       cursor: pointer;
     }
@@ -188,7 +190,7 @@ Cart
     bottom: 0;
     right: 0;
     position: absolute;
-    z-index: -1;   
+    z-index: -1;
   }
 }
 
@@ -208,33 +210,33 @@ Items
 .item {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-areas: "img img"
-                       "title title"
-                       "price cart";
+  grid-template-areas:
+    "img img"
+    "title title"
+    "price cart";
   position: relative;
-  
+
   &__image {
     grid-area: img;
     width: 100%;
     transition: 0.3s;
-
   }
 
   &__title {
     grid-area: title;
-    font-family: 'Oswald', sans-serif;
+    font-family: "Oswald", sans-serif;
     font-weight: 700;
     font-size: 2.4rem;
   }
 
   &__price {
-    font-family: 'Inconsolata', monospace;
+    font-family: "Inconsolata", monospace;
     font-weight: 700;
     font-size: 2rem;
   }
 
   &__button {
-    border: none;     
+    border: none;
     border-radius: 5px;
     color: black;
     font-weight: 700;
@@ -264,25 +266,23 @@ Items
       cursor: pointer;
 
       &:disabled {
-        opacity: .3;
+        opacity: 0.3;
         cursor: auto;
       }
     }
-  }  
+  }
 
   &:hover {
     .item__image {
       transform: scale(1.03);
-      opacity: .25;
+      opacity: 0.25;
     }
 
     .item__controls {
       opacity: 1;
     }
   }
-
 }
-
 
 /***************************************************************************
 Footer
@@ -296,13 +296,10 @@ Footer
   color: #aaa;
   text-align: right;
 
-
   p {
     padding: 1rem;
   }
 }
-
-
 
 /***************************************************************************
 Modals
@@ -335,7 +332,7 @@ Modals
     bottom: 0;
     right: 0;
     position: absolute;
-    z-index: -1;   
+    z-index: -1;
   }
 }
 
@@ -362,37 +359,35 @@ Modals
     bottom: 0;
     right: 0;
     position: absolute;
-    z-index: -101;   
+    z-index: -101;
   }
 
   &::before {
     content: ":/";
     color: white;
     font-size: 10rem;
-    font-family: 'Oswald', sans-serif;
+    font-family: "Oswald", sans-serif;
     margin-right: 3rem;
   }
 }
-
-
 
 /***************************************************************************
 Modals
 ****************************************************************************/
 
 @media screen and (max-width: 64em) {
-
   html {
-      font-size: 50%;
+    font-size: 50%;
   }
 
   .App {
     grid-template-rows: min-content min-content min-content min-content;
     grid-template-columns: 1fr;
-    grid-template-areas: "header"
-                        "cart"
-                        "main"
-                        "footer";
+    grid-template-areas:
+      "header"
+      "cart"
+      "main"
+      "footer";
     padding: 2rem;
   }
 
@@ -401,11 +396,9 @@ Modals
     grid-column-gap: 5rem;
     grid-row-gap: 5rem;
   }
-
 }
 
 @media screen and (max-width: 37.5em) {
-
   .header {
     &__title {
       font-size: 9rem;
@@ -419,12 +412,10 @@ Modals
   .enlarger {
     display: none;
   }
-
 }
-
 
 @media (min-resolution: 130dpi) and (max-resolution: 150dpi) and (width: 1280px) {
   html {
-      font-size: 45%;
+    font-size: 45%;
   }
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import MagnifyingGlass from "./MagnifyingGlass";
 import ShoppingCart from "./ShoppingCart";
+import PropTypes from "prop-types";
 
 class Item extends React.Component {
   viewImage = () => {
@@ -42,5 +43,13 @@ class Item extends React.Component {
     );
   }
 }
+
+Item.propTypes = {
+  priceGouger: PropTypes.func,
+  viewImageModal: PropTypes.func,
+  addToCart: PropTypes.func,
+  item: PropTypes.object,
+  cart: PropTypes.array
+};
 
 export default Item;
